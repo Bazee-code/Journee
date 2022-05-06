@@ -1,5 +1,5 @@
 import { getNewId } from "../utils";
-import { ITEM_ADD, ITEM_EDIT, TodoAction, ITEM_COMPLETE } from "./todoAC";
+import { ITEM_ADD, ITEM_EDIT, TodoAction, ITEM_COMPLETE, ITEM_REMOVE } from "./todoAC";
 
 type Item = {
   id: string;
@@ -47,6 +47,13 @@ const todoReducer = (
             ...state.items.slice(0,completedItemIndex),
             { ...state.items[completedItemIndex], done : true},
             ...state.items.slice(completedItemIndex + 1)
+          ]
+        };
+    case ITEM_REMOVE:
+        const filteredItems = state.items.filter((item) => item.id !== action.itemId)
+        return {
+          items : [
+            ...filteredItems
           ]
         }
     default:
