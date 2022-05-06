@@ -1,6 +1,6 @@
 import styled from 'styled-components'
+import AddItemsInput from './components/AddItemsInput';
 import Header from './components/Header';
-import ItemList from "./components/ItemList";
 
 const AppContainer = styled.div`
   padding : 30px;
@@ -10,7 +10,7 @@ const App = () => {
   return (
     <AppContainer>
       <Header />
-      <ItemList />
+      <AddItemsInput />
     </AppContainer>
   );
 };
