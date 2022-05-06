@@ -29,7 +29,7 @@ export const ItemText = styled.p`
     font-size : 18px;
     font-weight : 500;
     text-decoration : line-through;
-    padding : 5px;
+    padding-bottom : 10px;
 
     @media ${device.mobileS}{
         font-size: 13px;
@@ -37,8 +37,9 @@ export const ItemText = styled.p`
       }
     
     @media ${device.tablet}{
-        font-size: 16px;
+        font-size: 18px;
         padding-bottom : 5px;
+        padding-left : 20px
       }
 `
 export const CompletedText = styled.p`
