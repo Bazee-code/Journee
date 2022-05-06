@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { editTodo, completeTodo } from "../todo/todoAC";
+import { editTodo, completeTodo, deleteTodo } from "../todo/todoAC";
 import { useAppDispatch, useAppSelector } from "../types";
+import { MdDelete } from 'react-icons/md'
 
 const ItemListContainer = styled.div`
   width : 30%;
@@ -15,17 +16,13 @@ const Title = styled.p`
     font-weight : 800;
 `
 const List = styled.ul`
-  // width: 100%;
   // display: flex;
-  // flex-direction: column;
   // box-sizing: border-box;
 `;
 
 const Item = styled.li`
-  // width: 100%;
-  // margin: 4px 0;
-  // display: flex;
-  // flex-direction: row;
+  display: flex;
+  flex-direction: row
 `;
 
 const ItemInput = styled.input`
@@ -35,12 +32,22 @@ const ItemInput = styled.input`
 
 const ItemCheckbox = styled.input.attrs({
   type: "checkbox",
-})``;
+})`
+  margin-top : 10px;
+`;
 
 const ItemListText = styled.p`
     text-align : center;
     font-size : 16px;
     color : grey;
+`
+const ItemDeleteButton = styled.button`
+  margin-left : 2px;
+  cursor: pointer;
+  border : none;
+  height : 28px;
+  background: none;
+  // margin-top : 10px;
 `
 
 const ItemList: React.FC = () => {
@@ -63,6 +70,9 @@ const ItemList: React.FC = () => {
                   value={item.text}
                   onChange={(e) => dispatch(editTodo(item.id, e.target.value))}
                 />
+                <ItemDeleteButton onClick={()=>dispatch(deleteTodo(item.id))}>
+                  <MdDelete size={25} color={"red"} />
+                </ItemDeleteButton>
             </Item>
               )
             }
