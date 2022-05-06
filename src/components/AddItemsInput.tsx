@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import { useAppDispatch } from '../types'
+import { addTodo } from '../todo/todoAC'
 
 const InputContainer = styled.div`
     width : 100%;
@@ -24,12 +26,19 @@ const Button = styled.button`
 const AddItemsInput = () => {
 
     const [item, setItem] = useState('')
+    const dispatch = useAppDispatch()
 
     const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
         setItem(event.target.value)
     }
 
-    console.log('item',item)
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        
+        // dispatch add items action here
+        dispatch(addTodo(item))
+    
+    }
 
     return (
         <InputContainer>
@@ -39,7 +48,7 @@ const AddItemsInput = () => {
                 value={item}
                 onChange={handleChange}
             />
-            <Button>Add</Button>
+            <Button onClick={handleSubmit}>Add</Button>
         </InputContainer>
     )
 }
