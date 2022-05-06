@@ -1,12 +1,14 @@
 # Technical test instructions
 
 Your task is to advance this todo app and we will evaluate you on the quality of:
+
 - Your code (Is it working, well structured and readable?)
 - Your visual design
 - Your user interaction choices (UX)
-You do not have to follow the order of the tasks.
+  You do not have to follow the order of the tasks.
 
 Expected result:
+
 - A light ZIP file at the root of which we can run:
 - `yarn install && yarn start` to start the app.
 - `git log` to see your commit history.
@@ -24,4 +26,4 @@ You can always reach out to the Journee team at tech@journee.live if you have an
    - Without using drop shadows.
 3. Any added item that has an empty text should be automatically cleared, unless it is in focus.
 
-Happy coding! 
+Happy coding!

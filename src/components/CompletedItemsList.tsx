@@ -1,5 +1,5 @@
 import { useAppSelector } from '../types'
-import { CompletedItemContainer, Title, CompletedText, ItemText } from '../styles/completed-items-styles'
+import { CompletedItemContainer, Title, CompletedText, ItemText, CompletedItem } from '../styles/completed-items-styles'
 
 const CompletedItemsList = () => {
 
@@ -13,12 +13,10 @@ const CompletedItemsList = () => {
                     items.map(item => {
                         if(item.done === true){
                             return (
-                            <ul key={item.id}>
-                                <li>
-                                    <ItemText>{item.text}
-                                    </ItemText>
-                                </li>
-                            </ul>
+                            <CompletedItem key={item.id}>
+                                <ItemText>{item.text}
+                                </ItemText>
+                            </CompletedItem>
                              )}
                     })
                 )

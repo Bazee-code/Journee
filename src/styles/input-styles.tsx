@@ -7,13 +7,16 @@ export const InputContainer = styled.form`
     justify-content : center;
 
 `
-
 export const InputElement = styled.input`
     width : 30%;
     height : 30px;
     cursor : pointer;
 
-    @media ${device.mobileM}{
+    @media ${device.mobileS}{
+        width : 50%;
+        cursor : pointer;
+    }
+    @media ${device.tablet}{
         width : 60%;
         cursor : pointer;
     }
@@ -26,8 +29,13 @@ export const Button = styled.button`
     color : #FFF;
     border : none;
     
-    @media ${device.mobileM}{
-        width : 15%;
+    @media ${device.mobileS}{
+        width : 12%;
+        cursor : pointer;
+    }
+
+    @media ${device.tablet}{
+        width : 10%;
         cursor : pointer;
     }
 `

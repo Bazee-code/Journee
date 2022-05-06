@@ -4,12 +4,14 @@ import { device } from './breakpoints'
 export const ItemsContainer = styled.div`
     width : 100%;
     display : flex;
-    justify-content : space-around;
     margin-top : 20px;
+    justify-content : space-around;
 
-    @media ${device.mobileM}{
+    @media ${device.mobileS}{
+        display : block;
+    }
+    @media ${device.tablet}{
         display : flex;
-        flex-direction: column;
-        cursor : pointer;
+        justify-content : space-around;
     }
 `
