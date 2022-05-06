@@ -47,6 +47,7 @@ const AddItemsInput = () => {
                 placeholder="Type to add a task"
                 value={item}
                 onChange={handleChange}
+                autoFocus
             />
             <Button onClick={handleSubmit}>Add</Button>
         </InputContainer>
