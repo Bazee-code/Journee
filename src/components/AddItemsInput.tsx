@@ -12,7 +12,7 @@ const AddItemsInput = () => {
         setItem(event.target.value)
     }
 
-    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         
         if(!item || /^\s*$/.test(item)){
@@ -24,7 +24,7 @@ const AddItemsInput = () => {
     }
 
     return (
-        <InputContainer>
+        <InputContainer onSubmit={handleSubmit}>
             <InputElement 
                 type="text"
                 placeholder="Type to add a task"
@@ -32,7 +32,7 @@ const AddItemsInput = () => {
                 onChange={handleChange}
                 autoFocus
             />
-            <Button onClick={handleSubmit}>Add</Button>
+            <Button >Add</Button>
         </InputContainer>
     )
 }
