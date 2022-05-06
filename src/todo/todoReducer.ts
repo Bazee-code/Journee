@@ -1,5 +1,5 @@
 import { getNewId } from "../utils";
-import { ITEM_ADD, ITEM_EDIT, TodoAction } from "./todoAC";
+import { ITEM_ADD, ITEM_EDIT, TodoAction, ITEM_COMPLETE } from "./todoAC";
 
 type Item = {
   id: string;
@@ -33,7 +33,6 @@ const todoReducer = (
       };
     case ITEM_EDIT:
       const index = state.items.findIndex((item) => item.id === action.itemId);
-      // Feel free to use immutability-helper or an equivalent library.
       return {
         items: [
           ...state.items.slice(0, index),
@@ -41,6 +40,15 @@ const todoReducer = (
           ...state.items.slice(index + 1),
         ],
       };
+    case ITEM_COMPLETE:
+        const completedItemIndex = state.items.findIndex((item)=> item.id === action.itemId)
+        return {
+          items : [
+            ...state.items.slice(0,completedItemIndex),
+            { ...state.items[completedItemIndex], done : true},
+            ...state.items.slice(completedItemIndex + 1)
+          ]
+        }
     default:
       return state;
   }
