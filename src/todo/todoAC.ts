@@ -5,7 +5,7 @@ export const ITEM_EDIT = "ITEM_EDIT";
 export const ITEM_REMOVE = "ITEM_REMOVE";
 export const ITEM_COMPLETE = "ITEM_COMPLETE"
 
-export type TodoAction = AddTodoAction | EditTodoAction | CompletedTodoAction;
+export type TodoAction = AddTodoAction | EditTodoAction | CompletedTodoAction | DeleteTodoAction;
 
 export interface AddTodoAction extends Action<typeof ITEM_ADD> {
   text: string;
@@ -31,5 +31,14 @@ export interface CompletedTodoAction extends Action<typeof ITEM_COMPLETE> {
 
 export const completeTodo = (itemId : string) : CompletedTodoAction => ({
   type : ITEM_COMPLETE,
+  itemId
+})
+
+export interface DeleteTodoAction extends Action<typeof ITEM_REMOVE> {
+  itemId : string
+}
+
+export const deleteTodo = (itemId : string) : DeleteTodoAction => ({
+  type : ITEM_REMOVE,
   itemId
 })
