@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { editTodo } from "../todo/todoAC";
+import { editTodo, completeTodo } from "../todo/todoAC";
 import { useAppDispatch, useAppSelector } from "../types";
 
 const ItemListContainer = styled.div`
@@ -57,12 +57,12 @@ const ItemList: React.FC = () => {
             if (item.done === false){
               return (
                 <Item key={item.id}>
-                <ItemCheckbox  />
+                <ItemCheckbox onClick={()=>dispatch(completeTodo(item.id))} />
                 <ItemInput
-                type="text"
-                value={item.text}
-                onChange={(e) => dispatch(editTodo(item.id, e.target.value))}
-              />
+                  type="text"
+                  value={item.text}
+                  onChange={(e) => dispatch(editTodo(item.id, e.target.value))}
+                />
             </Item>
               )
             }
