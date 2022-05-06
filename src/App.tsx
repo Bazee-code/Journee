@@ -1,11 +1,7 @@
-import styled from 'styled-components'
 import AddItemsInput from './components/AddItemsInput';
-import AllItems from './components/AllItems';
 import Header from './components/Header';
-
-const AppContainer = styled.div`
-  padding : 30px;
-`
+import AllItems from './components/AllItems';
+import { AppContainer } from './styles/app-styles';
 
 const App = () => {
   return (
