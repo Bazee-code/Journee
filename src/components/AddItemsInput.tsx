@@ -37,7 +37,7 @@ const AddItemsInput = () => {
         
         // dispatch add items action here
         dispatch(addTodo(item))
-    
+        setItem('')
     }
 
     return (
