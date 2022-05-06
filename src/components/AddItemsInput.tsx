@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import { useAppDispatch } from '../types'
-import { addTodo } from '../todo/todoAC'
 
 const InputContainer = styled.div`
     width : 100%;
@@ -25,13 +23,21 @@ const Button = styled.button`
 
 const AddItemsInput = () => {
 
-    
+    const [item, setItem] = useState('')
+
+    const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
+        setItem(event.target.value)
+    }
+
+    console.log('item',item)
 
     return (
         <InputContainer>
             <InputElement 
                 type="text"
                 placeholder="Type to add a task"
+                value={item}
+                onChange={handleChange}
             />
             <Button>Add</Button>
         </InputContainer>
